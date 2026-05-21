@@ -1,0 +1,554 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0D1F3C;
+  --navy2:#162B52;
+  --gold:#C9972A;
+  --gold2:#E8B84B;
+  --cream:#FAF7F2;
+  --text:#1A1A2E;
+  --muted:#6B6B7B;
+  --light:#F0EDE8;
+}
+
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+.hero{
+  background:var(--navy);
+  position:relative;
+  padding:0;
+  overflow:hidden;
+  min-height:520px;
+  display:flex;
+  flex-direction:column;
+}
+
+.hero-bg{
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 40px,
+    rgba(201,151,42,0.04) 40px,
+    rgba(201,151,42,0.04) 41px
+  );
+}
+
+.hero-circle{
+  position:absolute;
+  right:-120px;top:-120px;
+  width:500px;height:500px;
+  border-radius:50%;
+  border:1px solid rgba(201,151,42,0.12);
+}
+.hero-circle2{
+  position:absolute;
+  right:-60px;top:-60px;
+  width:380px;height:380px;
+  border-radius:50%;
+  border:1px solid rgba(201,151,42,0.08);
+}
+
+.top-bar{
+  position:relative;z-index:2;
+  padding:20px 40px;
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid rgba(201,151,42,0.2);
+}
+.top-bar-label{
+  font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;
+  font-weight:500;
+}
+.top-bar-contact{
+  font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:1px;
+}
+
+.hero-content{
+  position:relative;z-index:2;
+  padding:48px 40px 40px;
+  flex:1;
+  display:flex;flex-direction:column;justify-content:center;
+}
+
+.est-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(201,151,42,0.12);
+  border:1px solid rgba(201,151,42,0.3);
+  border-radius:2px;
+  padding:6px 14px;
+  font-size:11px;letter-spacing:2.5px;color:var(--gold2);
+  text-transform:uppercase;font-weight:500;
+  margin-bottom:24px;
+  width:fit-content;
+}
+.est-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,6vw,64px);
+  font-weight:900;
+  color:#fff;
+  line-height:1.05;
+  letter-spacing:-1px;
+  margin-bottom:6px;
+}
+.h1-accent{color:var(--gold);}
+
+.tagline{
+  font-size:13px;letter-spacing:3px;color:rgba(255,255,255,0.45);
+  text-transform:uppercase;font-weight:400;margin-bottom:32px;
+}
+
+.divider-gold{
+  width:60px;height:3px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  margin-bottom:28px;
+}
+
+.hero-desc{
+  font-size:15px;color:rgba(255,255,255,0.7);
+  line-height:1.75;max-width:520px;font-weight:300;
+}
+
+.stats-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--gold);
+  position:relative;z-index:2;
+}
+.stat-item{
+  padding:22px 24px;
+  border-right:1px solid rgba(0,0,0,0.1);
+  text-align:center;
+}
+.stat-item:last-child{border-right:none;}
+.stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:28px;font-weight:700;
+  color:var(--navy);line-height:1;
+  margin-bottom:4px;
+}
+.stat-lbl{
+  font-size:10px;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(13,31,60,0.65);font-weight:500;
+}
+
+.section{padding:52px 40px;}
+.section-alt{background:#fff;}
+
+.section-header{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:32px;
+}
+.section-tag{
+  font-size:10px;letter-spacing:3px;color:var(--gold);
+  text-transform:uppercase;font-weight:500;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:28px;font-weight:700;
+  color:var(--navy);line-height:1.2;
+}
+.section-line{
+  flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent);
+  margin-left:8px;
+}
+
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+  align-items:start;
+}
+.about-text{
+  font-size:15px;line-height:1.85;color:#3A3A4A;font-weight:300;
+}
+.about-text p{margin-bottom:16px;}
+.about-text strong{color:var(--navy);font-weight:500;}
+
+.founder-card{
+  background:var(--navy);
+  border-radius:4px;padding:32px;
+  position:relative;overflow:hidden;
+}
+.founder-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--gold);
+}
+.founder-quote{
+  font-family:'Playfair Display',serif;
+  font-size:17px;color:rgba(255,255,255,0.9);
+  line-height:1.6;font-style:italic;
+  margin-bottom:20px;
+}
+.founder-name{
+  font-size:13px;color:var(--gold);letter-spacing:1px;font-weight:500;
+}
+.founder-title{
+  font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:1px;margin-top:2px;
+}
+.founder-icon{
+  position:absolute;bottom:24px;right:24px;
+  font-size:64px;color:rgba(201,151,42,0.08);
+  font-family:'Playfair Display',serif;font-weight:900;
+  line-height:1;
+}
+
+.services-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
+}
+.service-card{
+  border:1px solid var(--light);
+  border-radius:4px;
+  padding:28px;
+  position:relative;
+  overflow:hidden;
+  background:#fff;
+  transition:all 0.3s ease;
+  cursor:default;
+}
+.service-card:hover{
+  border-color:var(--gold);
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(201,151,42,0.1);
+}
+.service-card::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--gold);opacity:0;
+  transition:opacity 0.3s;
+}
+.service-card:hover::before{opacity:1;}
+.service-icon{
+  font-size:28px;margin-bottom:14px;
+  display:block;
+}
+.service-name{
+  font-family:'Playfair Display',serif;
+  font-size:17px;font-weight:700;
+  color:var(--navy);margin-bottom:8px;
+}
+.service-desc{
+  font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;
+}
+
+.projects-header-row{
+  display:grid;
+  grid-template-columns:40px 1fr 160px 70px 130px;
+  gap:0;
+  background:var(--navy);
+  border-radius:4px 4px 0 0;
+  padding:14px 20px;
+}
+.ph{
+  font-size:10px;letter-spacing:2px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.5);font-weight:500;
+}
+.ph.right{text-align:right;}
+
+.project-row{
+  display:grid;
+  grid-template-columns:40px 1fr 160px 70px 130px;
+  gap:0;
+  padding:14px 20px;
+  border-bottom:1px solid var(--light);
+  background:#fff;
+  transition:background 0.2s;
+  align-items:center;
+}
+.project-row:hover{background:#FAFAF8;}
+.project-row:last-child{border-bottom:none;border-radius:0 0 4px 4px;}
+.pr-num{
+  font-size:11px;color:var(--gold);font-weight:500;
+}
+.pr-name{
+  font-size:14px;font-weight:500;color:var(--navy);
+}
+.pr-loc{font-size:12px;color:var(--muted);}
+.pr-year{font-size:13px;color:var(--muted);}
+.pr-val{
+  text-align:right;
+  font-size:13px;font-weight:500;color:var(--navy);
+}
+.pr-val span{
+  background:rgba(201,151,42,0.1);
+  color:var(--gold);
+  padding:3px 8px;border-radius:2px;
+  font-size:12px;
+}
+
+.clients-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+.client-card{
+  background:#fff;
+  border:1px solid var(--light);
+  border-radius:4px;
+  padding:20px 24px;
+  display:flex;align-items:center;gap:14px;
+  transition:all 0.25s;
+}
+.client-card:hover{border-color:var(--gold);transform:translateY(-1px);}
+.client-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--gold);flex-shrink:0;
+}
+.client-name{font-size:14px;font-weight:500;color:var(--navy);}
+.client-type{font-size:11px;color:var(--muted);margin-top:2px;}
+
+.footer{
+  background:var(--navy);
+  padding:40px;
+  position:relative;overflow:hidden;
+}
+.footer::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+}
+.footer-grid{
+  display:grid;grid-template-columns:1fr auto;
+  gap:40px;align-items:center;
+}
+.footer-brand{
+  font-family:'Playfair Display',serif;
+  font-size:22px;color:#fff;font-weight:700;
+  margin-bottom:6px;
+}
+.footer-sub{
+  font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,0.35);
+}
+.contact-list{display:flex;flex-direction:column;gap:10px;text-align:right;}
+.contact-item{
+  font-size:13px;color:rgba(255,255,255,0.7);
+}
+.contact-item strong{color:var(--gold);margin-right:8px;}
+
+.why-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.why-card{
+  background:var(--navy);
+  border-radius:4px;padding:28px;
+  position:relative;
+}
+.why-card::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--gold);border-radius:0 0 4px 4px;
+  opacity:0.6;
+}
+.why-num{
+  font-family:'Playfair Display',serif;
+  font-size:42px;color:rgba(201,151,42,0.15);
+  font-weight:900;line-height:1;
+  margin-bottom:10px;
+}
+.why-title{
+  font-size:14px;font-weight:500;color:#fff;
+  margin-bottom:8px;
+}
+.why-text{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.65;font-weight:300;}
+
+.animate-in{
+  opacity:0;transform:translateY(16px);
+  animation:fadeUp 0.6s ease forwards;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+.d1{animation-delay:0.1s}
+.d2{animation-delay:0.2s}
+.d3{animation-delay:0.3s}
+.d4{animation-delay:0.4s}
+</style>
+
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Swapna Engineers company profile — plumbing, fire fighting, painting and waterproofing contractor since 2010</h2>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle2"></div>
+
+  <div class="top-bar">
+    <span class="top-bar-label">Company Profile · Est. 2010</span>
+    <span class="top-bar-contact">+91-9703134440 &nbsp;·&nbsp; swapnaengineers4@gmail.com</span>
+  </div>
+
+  <div class="hero-content">
+    <div class="est-badge animate-in d1"><span class="est-dot"></span>Pan-India Operations Since 2010</div>
+    <h1 class="animate-in d2">Swapna<br><span class="h1-accent">Engineers</span></h1>
+    <div class="tagline animate-in d3">Plumbing · Fire Fighting · Painting · Waterproofing</div>
+    <div class="divider-gold animate-in d3"></div>
+    <p class="hero-desc animate-in d4">A trusted partner in MEP contracting for India's leading developers. From township plumbing to high-rise fire suppression systems — we deliver precision, safety, and on-time excellence.</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-item"><div class="stat-num">15+</div><div class="stat-lbl">Years Active</div></div>
+    <div class="stat-item"><div class="stat-num">12+</div><div class="stat-lbl">Projects Done</div></div>
+    <div class="stat-item"><div class="stat-num">₹40Cr+</div><div class="stat-lbl">Total Value</div></div>
+    <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl">States Covered</div></div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Who We Are</div>
+      <div class="section-title">About Us</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Founded in <strong>2010</strong> by <strong>Mrs. Swapna Srinivas & Mr. Srinivas</strong>, Swapna Engineers has grown from a local plumbing service into one of India's recognised MEP contracting organisations — trusted by Tier-1 developers across multiple states.</p>
+      <p>Our company stands out for its <strong>end-to-end service capability</strong>: from a single tap replacement to full-scale township installations covering hundreds of apartments. We bring the same rigour and professionalism to every project, regardless of its size.</p>
+      <p>With a strong presence across <strong>Telangana, Karnataka, Maharashtra, Uttar Pradesh, and Andhra Pradesh</strong>, we are equipped to mobilise quickly and deliver with quality — every time.</p>
+    </div>
+    <div class="founder-card">
+      <div class="founder-quote">"From a single project in Raichur in 2011 to ₹40 Crores+ in delivered value — our commitment to quality has never wavered."</div>
+      <div class="founder-name">Mrs. Swapna Srinivas & Mr. Srinivas</div>
+      <div class="founder-title">Founders, Swapna Engineers</div>
+      <div class="founder-icon">"</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">What We Do</div>
+      <div class="section-title">Core Services</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🔧</span>
+      <div class="service-name">Plumbing Works</div>
+      <div class="service-desc">Comprehensive internal & external plumbing for residential towers, commercial complexes, hotels, and institutional buildings. Supply, installation, and commissioning from source to fixture.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔥</span>
+      <div class="service-name">Fire Fighting Systems</div>
+      <div class="service-desc">Design, supply & installation of hydrant systems, sprinkler networks, and fire suppression equipment — compliant with NBC and IS standards. Serving high-rise, commercial, and residential projects.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🎨</span>
+      <div class="service-name">Painting Works</div>
+      <div class="service-desc">Large-scale interior and exterior painting for industrial, commercial, and residential projects. Premium materials with meticulous surface preparation and finish quality.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💧</span>
+      <div class="service-name">Waterproofing</div>
+      <div class="service-desc">Terrace, basement, wet area, and retaining wall waterproofing using tested, premium-grade systems. Preventing leakage and structural degradation for the long term.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Our Track Record</div>
+      <div class="section-title">Completed Projects</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <div>
+    <div class="projects-header-row">
+      <div class="ph">#</div>
+      <div class="ph">Project</div>
+      <div class="ph">Location</div>
+      <div class="ph">Year</div>
+      <div class="ph right">Value</div>
+    </div>
+    <div class="project-row"><div class="pr-num">01</div><div><div class="pr-name">Navodaya Medical College</div><div class="pr-loc">Plumbing Works — IVRCL Shiva Narayana</div></div><div class="pr-loc">Raichur, Karnataka</div><div class="pr-year">2011</div><div class="pr-val"><span>₹29L</span></div></div>
+    <div class="project-row"><div class="pr-num">02</div><div><div class="pr-name">Navodaya Engineering College</div><div class="pr-loc">Plumbing Works — IVRCL Shiva Narayana</div></div><div class="pr-loc">Raichur, Karnataka</div><div class="pr-year">2012</div><div class="pr-val"><span>₹48L</span></div></div>
+    <div class="project-row"><div class="pr-num">03</div><div><div class="pr-name">Adani Township</div><div class="pr-loc">Plumbing — Ramky Infrastructures</div></div><div class="pr-loc">Gondia, Maharashtra</div><div class="pr-year">2013</div><div class="pr-val"><span>₹4.94Cr</span></div></div>
+    <div class="project-row"><div class="pr-num">04</div><div><div class="pr-name">AOL School — Discovery City</div><div class="pr-loc">Plumbing — Ramky Integrated</div></div><div class="pr-loc">Hyderabad, Telangana</div><div class="pr-year">2014</div><div class="pr-val"><span>₹18L</span></div></div>
+    <div class="project-row"><div class="pr-num">05</div><div><div class="pr-name">KDA Project</div><div class="pr-loc">Plumbing — Ramky Infrastructures</div></div><div class="pr-loc">Kanpur, Uttar Pradesh</div><div class="pr-year">2015–16</div><div class="pr-val"><span>₹10.25Cr</span></div></div>
+    <div class="project-row"><div class="pr-num">06</div><div><div class="pr-name">KDA Signature Greens</div><div class="pr-loc">Plumbing — Ramky Infrastructures</div></div><div class="pr-loc">Kanpur, Uttar Pradesh</div><div class="pr-year">2016</div><div class="pr-val"><span>₹6.84Cr</span></div></div>
+    <div class="project-row"><div class="pr-num">07</div><div><div class="pr-name">Ramky North-1</div><div class="pr-loc">Plumbing — Ramky Infrastructures</div></div><div class="pr-loc">Bangalore, Karnataka</div><div class="pr-year">2017</div><div class="pr-val"><span>₹4.51Cr</span></div></div>
+    <div class="project-row"><div class="pr-num">08</div><div><div class="pr-name">Huddle Project Villas — Discovery City</div><div class="pr-loc">Plumbing — Ramky Infrastructures</div></div><div class="pr-loc">Shamshabad, Telangana</div><div class="pr-year">2018</div><div class="pr-val"><span>₹1.35Cr</span></div></div>
+    <div class="project-row"><div class="pr-num">09</div><div><div class="pr-name">Ramky One Galaxy Apartments</div><div class="pr-loc">Plumbing — Ramky Infrastructures</div></div><div class="pr-loc">Nallagandla, Telangana</div><div class="pr-year">2019</div><div class="pr-val"><span>₹2.35Cr</span></div></div>
+    <div class="project-row"><div class="pr-num">10</div><div><div class="pr-name">TATA Projects Painting Works</div><div class="pr-loc">Painting — TATA Projects Ltd.</div></div><div class="pr-loc">Vizag, Andhra Pradesh</div><div class="pr-year">2020</div><div class="pr-val"><span>₹13L</span></div></div>
+    <div class="project-row"><div class="pr-num">11</div><div><div class="pr-name">My Home Vipina</div><div class="pr-loc">Fire Fighting — My Home Abja Powerhouse</div></div><div class="pr-loc">Tellapur, Hyderabad</div><div class="pr-year">2025–26</div><div class="pr-val"><span>₹3.50Cr</span></div></div>
+    <div class="project-row"><div class="pr-num">12</div><div><div class="pr-name">Makuta Developers — Residential</div><div class="pr-loc">Plumbing — Makuta Developers</div></div><div class="pr-loc">Pragathi Nagar, Hyd.</div><div class="pr-year">2025–26</div><div class="pr-val"><span>₹50L</span></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Our Strengths</div>
+      <div class="section-title">Why Choose Us</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <div class="why-title">Proven Experience</div>
+      <div class="why-text">Over 15 years of hands-on MEP contracting across India. Our team knows how to deliver on complex, large-scale projects without compromising quality.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <div class="why-title">Tier-1 Partnerships</div>
+      <div class="why-text">Trusted by Ramky Infrastructures, Adani Group, TATA Projects, and other leading developers — a testament to our reliability and professionalism.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <div class="why-title">End-to-End Capability</div>
+      <div class="why-text">From design coordination to final commissioning, we handle every phase in-house — eliminating gaps, reducing risk, and ensuring seamless delivery.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">04</div>
+      <div class="why-title">Pan-India Mobilisation</div>
+      <div class="why-text">Active operations across Telangana, Karnataka, Maharashtra, Uttar Pradesh, and Andhra Pradesh — we can mobilise quickly wherever your project is.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">05</div>
+      <div class="why-title">Safety & Compliance</div>
+      <div class="why-text">All systems are designed and installed in adherence to NBC, IS codes, and client-specific standards. Safety is never a compromise on our sites.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">06</div>
+      <div class="why-title">On-Time Delivery</div>
+      <div class="why-text">Our project management discipline ensures milestones are met. Our clients' construction schedules are our schedules — period.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Who We Work With</div>
+      <div class="section-title">Key Clients & Partners</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <div class="clients-grid">
+    <div class="client-card"><div class="client-dot"></div><div><div class="client-name">Ramky Infrastructures Ltd.</div><div class="client-type">Real Estate & Infrastructure</div></div></div>
+    <div class="client-card"><div class="client-dot"></div><div><div class="client-name">Adani Group</div><div class="client-type">Conglomerate — Township Development</div></div></div>
+    <div class="client-card"><div class="client-dot"></div><div><div class="client-name">TATA Projects Ltd.</div><div class="client-type">EPC & Industrial Projects</div></div></div>
+    <div class="client-card"><div class="client-dot"></div><div><div class="client-name">IVRCL — Shiva Narayana</div><div class="client-type">Infrastructure & Construction</div></div></div>
+    <div class="client-card"><div class="client-dot"></div><div><div class="client-name">My Home Abja Powerhouse Pvt. Ltd.</div><div class="client-type">Residential Development</div></div></div>
+    <div class="client-card"><div class="client-dot"></div><div><div class="client-name">Makuta Developers & Infrastructure</div><div class="client-type">Residential Construction</div></div></div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Swapna Engineers</div>
+      <div class="footer-sub">Plumbing · Fire Fighting · Painting · Waterproofing</div>
+    </div>
+    <div class="contact-list">
+      <div class="contact-item"><strong>Phone</strong>+91-9703134440</div>
+      <div class="contact-item"><strong>Email</strong>swapnaengineers4@gmail.com</div>
+      <div class="contact-item"><strong>Since</strong>2010 — Pan India</div>
+    </div>
+  </div>
+</div>
